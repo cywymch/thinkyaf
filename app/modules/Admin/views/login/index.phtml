@@ -1,0 +1,27 @@
+<?php include Yaf\View\Simple::getScriptPath().'/commom/header.phtml';?>
+<el-card class="box-card" style="width:550px;margin:0px auto;margin-top:12%;">
+  <div slot="header" class="clearfix" style="padding: 0px;">
+    <h3 style="margin: 10px;">管理系统</h3>
+  </div>
+  <div class="demo-input-suffix">
+  	  用户名：
+      <el-input style="margin:10px 0px;" name="username" placeholder="请输入用户名" v-model="input10" clearable></el-input>
+      密  码：
+      <el-input style="margin:10px 0px;" name="password" type="password" placeholder="请输入密码" v-model="input10" clearable></el-input>
+      <div style="margin:20px 0px;text-align: center;">
+          <el-button style="width:98%" v-loading.fullscreen.lock="fullscreenLoading" data-url="<?php echo BASE_URL?>/Admin/Login/login" v-on:click="login($event)" size="medium" type="success" round>登录</el-button>
+       </div>
+  </div>
+</template>
+  
+</el-card>
+<script>
+  export default {
+    data() {
+      return {
+        input10: ''
+      }
+    }
+  }
+</script>
+<?php include Yaf\View\Simple::getScriptPath().'/commom/footer.phtml';?>

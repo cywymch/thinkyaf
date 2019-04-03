@@ -1,0 +1,93 @@
+</div>
+<div>
+	<p style="text-align: center;">&copy;版权归未央莫愁湖所有</p>
+</div>
+ </body>
+ <script src="<?php echo BASE_URL;?>/public/js/jquery-1.12.4.min.js"></script>
+ <script src="https://unpkg.com/vue/dist/vue.js"></script>
+ <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+ <script type="text/javascript">
+ new Vue({
+     el: '#app',
+     data: function() {
+         return { 
+             visible: false,
+             fullscreenLoading: false,
+             isCollapse: false
+         }
+     },
+     methods:{
+   	  	init: function(res) {
+             $("#sidebar").css("height",document.documentElement.clientHeight)
+      	},
+   	  	message(msg,type) {
+ 	        this.$message({
+ 	          message: msg,
+ 	          type: type
+ 	        });
+ 	      },
+         login: function(event) {
+       	  const loading = this.$loading({
+                 lock: true,
+                 text: '登录中...',
+                 spinner: 'el-icon-loading',
+                 background: 'rgba(0, 0, 0, 0.7)'
+             });
+             _this = this;
+       	  //this.fullscreenLoading = true;
+     	        setTimeout(() => {
+     	        	loading.close();
+     	          	//this.fullscreenLoading = false;
+     	      }, 2000);
+             var _url = event.target.getAttribute("data-url");
+             var username = $("input[name='username']").val(),password = $("input[name='password']").val();
+             if (username.length==0) {
+                 this.message('用户名不能为空','error');
+                 return false;
+             }
+             if (password.length==0) {
+                 this.message('密码不能为空','error');
+                 return false;
+             }
+             var data = {
+                     username:$("input[name='username']").val(),
+                     password:$("input[name='password']").val()
+            };
+             $.ajax({
+                 type:"post",
+                 url:_url,
+                 data:data,
+                 success:function(res) {
+                     if (res.code=='0') {
+                     	  setTimeout(function(){_this.message(res.msg,'success');},2000);
+                     	  window.location.href='<?php echo BASE_URL;?>/Index/Index/index';
+                     }else {
+                   	      setTimeout(function(){_this.message(res.msg,'error');},2000);
+                     }
+                 }
+             });
+         },
+     },
+     mounted:function(){
+         $("#sidebar").css("height",document.documentElement.clientHeight-60);
+     }
+   });
+     $(function(){
+    		// 打开一个 web socket
+    		var ws = new WebSocket("ws://116.62.58.170:9520");
+    
+    		ws.onopen = function()
+    		{
+    		 console.log("连接成功！");
+    		};
+    		ws.onmessage = function (evt) { 
+    			var received_msg = evt.data;
+    		    alert(received_msg);
+    		};
+    		function send_msg(){
+    			var msg = $("#danmu").val();
+    			ws.send(msg); 
+    		}
+    	})
+ </script>
+</html>

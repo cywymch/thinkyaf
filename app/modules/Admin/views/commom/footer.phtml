@@ -1,0 +1,64 @@
+</div>
+ </body>
+ <script src="<?php echo BASE_URL;?>/public/js/jquery-1.12.4.min.js"></script>
+ <script src="https://unpkg.com/vue/dist/vue.js"></script>
+ <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+ <script>
+    new Vue({
+      el: '#app',
+      data: function() {
+          return { 
+              visible: false,
+              fullscreenLoading: false,
+              isCollapse: false
+          }
+      },
+      methods:{
+    	  init: function(res) {
+              $("#sidebar").css("height",document.documentElement.clientHeight)
+          },
+    	  message(msg,type) {
+  	        this.$message({
+  	          message: msg,
+  	          type: type
+  	        });
+  	      },
+          login: function(event) {
+        	  const loading = this.$loading({
+                  lock: true,
+                  text: '登录中...',
+                  spinner: 'el-icon-loading',
+                  background: 'rgba(0, 0, 0, 0.7)'
+              });
+              _this = this;
+        	  //this.fullscreenLoading = true;
+      	        setTimeout(() => {
+      	        	loading.close();
+      	          	//this.fullscreenLoading = false;
+      	      }, 2000);
+              var _url = event.target.getAttribute("data-url");
+              var data = {
+                      username:$("input[name='username']").val(),
+                      password:$("input[name='password']").val()
+             };
+              $.ajax({
+                  type:"post",
+                  url:_url,
+                  data:data,
+                  success:function(res) {
+                      if (res.code=='0') {
+                      	  setTimeout(function(){_this.message(res.msg,'success');},2000);
+                      	  window.location.href='<?php echo BASE_URL;?>/Admin/Index/index';
+                      }else {
+                    	  setTimeout(function(){_this.message(res.msg,'error');},2000);
+                      }
+                  }
+              });
+          },
+      },
+      mounted:function(){
+          $("#sidebar").css("height",document.documentElement.clientHeight-60);
+      }
+    })
+  </script>
+</html>
