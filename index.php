@@ -10,9 +10,13 @@ if (! defined('__PATH__')) {
     $_root = rtrim(dirname(_PHP_FILE_), '/');
     define('__PATH__', (($_root == '/' || $_root == '\\') ? '' : $_root));
 }
-//开发域名配置
+//项目根目录
 define("__ROOT__",dirname(__FILE__));
-// Yaf\Loader::import(__ROOT__."/app/library/vendor/autoload.php");
-// require_once __ROOT__.'/app/common/function.php';
+//app根目录
+define("APP_PATH",__ROOT__."/app/");
+//库文件根目录
+define("LIBRARY_PATH",APP_PATH."library/");
+//引入composer包
+require LIBRARY_PATH."vendor/autoload.php";
 $app = new Yaf\Application(__ROOT__."/conf/app.ini");
 $app->bootstrap()->run();

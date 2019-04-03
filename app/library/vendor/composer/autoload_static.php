@@ -8,6 +8,7 @@ class ComposerStaticInite96da58894c08cebdef2ba7623799c2f
 {
     public static $files = array (
         '33197a0023ced5fbf8f861d1c4ca048d' => __DIR__ . '/..' . '/topthink/think-orm/src/config.php',
+        '2ea4749ce8ae2b1f8a26a11c940433b2' => __DIR__ . '/../..' . '/../common/function.php',
     );
 
     public static $prefixLengthsPsr4 = array (
