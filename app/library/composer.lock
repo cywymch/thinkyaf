@@ -54,16 +54,16 @@
         },
         {
             "name": "topthink/think-orm",
-            "version": "v1.2.15",
+            "version": "v1.2.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/top-think/think-orm.git",
-                "reference": "cea914089abe31256a52ae90b16680ad4ca4f1bd"
+                "reference": "979269850d4686324d1461c876d26e61bd75cff0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/top-think/think-orm/zipball/cea914089abe31256a52ae90b16680ad4ca4f1bd",
-                "reference": "cea914089abe31256a52ae90b16680ad4ca4f1bd",
+                "url": "https://api.github.com/repos/top-think/think-orm/zipball/979269850d4686324d1461c876d26e61bd75cff0",
+                "reference": "979269850d4686324d1461c876d26e61bd75cff0",
                 "shasum": ""
             },
             "require": {
@@ -89,7 +89,7 @@
                 }
             ],
             "description": "think orm",
-            "time": "2018-12-25T06:27:02+00:00"
+            "time": "2019-01-29T03:56:09+00:00"
         }
     ],
     "packages-dev": [],
