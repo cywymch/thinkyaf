@@ -12,7 +12,7 @@ if (! defined('__PATH__')) {
 }
 //开发域名配置
 define("__ROOT__",dirname(__FILE__));
-Yaf\Loader::import(__ROOT__."/app/library/vendor/autoload.php");
-require_once __ROOT__.'/app/common/function.php';
+// Yaf\Loader::import(__ROOT__."/app/library/vendor/autoload.php");
+// require_once __ROOT__.'/app/common/function.php';
 $app = new Yaf\Application(__ROOT__."/conf/app.ini");
 $app->bootstrap()->run();
