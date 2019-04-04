@@ -10,8 +10,8 @@ class IndexController extends Controller_Abstract
 {
     public function indexAction()
     {
-        $obj = new Cache;
-        $obj(33);
+//         $obj = new Cache;
+//         $obj(33);
          $data = $this->getRequest()->getEnv();
          dump($data);
        echo 111;
