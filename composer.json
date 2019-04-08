@@ -1,0 +1,10 @@
+{
+	"require" : {
+		"topthink/think-orm" : "^2.0"
+	},
+	"autoload" : {
+		"files" : [
+			"common/function.php"
+		]
+	}
+}
