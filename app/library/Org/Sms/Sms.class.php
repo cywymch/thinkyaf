@@ -71,10 +71,12 @@ class Sms
      * @param array $config            
      * @return self
      */
-    public function config($config = [])
+    public function config(array $config = []):self
     {
-        if (C('sms')) {
-            static::$config = array_merge(static::$config, C('sms'));
+        $config = new Yaf\Config\Ini(__ROOT__."/conf/app.ini");
+        $sms = $config->get("sms");
+        if ($sms) {
+            static::$config = array_merge(static::$config, $sms);
         }
         if ($config) {
             static::$config = array_merge(static::$config, $config);
@@ -95,7 +97,7 @@ class Sms
      * @param
      *            array
      */
-    public function send($mobile, $content)
+    public function send(string $mobile, string $content):array
     {
         return self::$smsObj->config(self::$config)->sms($mobile, $content);
     }

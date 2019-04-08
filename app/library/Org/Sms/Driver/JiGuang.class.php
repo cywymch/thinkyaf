@@ -26,7 +26,7 @@ class JiGuang implements SmsInterface
      * {@inheritDoc}
      * @see \Common\Org\Sms\SmsInterface::config()
      */
-    public function config($config)
+    public function config(array $config):self
     {
         $this->sms_key = $config['sms_key'];
         $this->sms_secret = $config['sms_secret'];
@@ -39,7 +39,7 @@ class JiGuang implements SmsInterface
      * {@inheritDoc}
      * @see \Common\Org\Sms\SmsInterface::sms()
      */
-    public function sms($mobile, $content)
+    public function sms(string $mobile, string $content):array
     {
         $sn = $this->sms_key;
         $password = $this->sms_secret;

@@ -31,7 +31,7 @@ class Ihuyi implements SmsInterface
      * {@inheritDoc}
      * @see \Common\Org\Sms\SmsInterface::config()
      */
-    public function config($config) 
+    public function config(array $config):self 
     {
         $this->sms_key = $config['sms_key'];
         $this->sms_secret = $config['sms_secret'];
@@ -43,14 +43,14 @@ class Ihuyi implements SmsInterface
      * {@inheritDoc}
      * @see \Common\Org\Sms\SmsInterface::sms()
      */
-    public function sms($mobile, $content)
+    public function sms(string $mobile, string $content):array
     {
         $sn = $this->sms_key;
         $password = $this->sms_secret;
         $post_data = "account=" . $sn . "&password=" . $password . "&mobile=" . $mobile . "&content=" . rawurlencode($content);
         // 密码可以使用明文密码或使用32位MD5加密
         $res = Tools::xml_to_array(Request::httpPost($this->sms_url, $post_data));
-        $data = ['code' =>0, 'info'=>$result->data ];
+        $data = ['code' =>0, 'info'=>$res->data ];
         if ($res['code']!=2) {
             $data = ['code' =>1, 'msg'=>$res['SubmitResult']['msg']];
         }

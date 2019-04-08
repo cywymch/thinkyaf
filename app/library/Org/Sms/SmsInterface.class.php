@@ -9,9 +9,9 @@ interface SmsInterface
     /**
      * 初始化配置
      * @param array $config
-     * @return void
+     * @return self
      */
-    public function config($config);
+    public function config(array $config):self;
     
     /**
      * 验证码发送
@@ -20,6 +20,6 @@ interface SmsInterface
      * @param string $content
      * @return array
      */
-    public function sms($mobile, $content);
+    public function sms(string $mobile, string $content):array;
 }
 

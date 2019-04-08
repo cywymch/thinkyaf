@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInit78cae7226a8ec50d45569a6087e2871c
 {
     public static $files = array (
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '33197a0023ced5fbf8f861d1c4ca048d' => __DIR__ . '/..' . '/topthink/think-orm/src/config.php',
         '70c2cc8e471afe501c2cdffcff4501b1' => __DIR__ . '/../..' . '/common/function.php',
     );
@@ -16,10 +20,25 @@ class ComposerStaticInit78cae7226a8ec50d45569a6087e2871c
         array (
             'think\\' => 6,
         ),
+        'Y' => 
+        array (
+            'Yunpian\\Sdk\\' => 12,
+        ),
         'P' => 
         array (
             'Psr\\SimpleCache\\' => 16,
+            'Psr\\Http\\Message\\' => 17,
             'Psr\\Cache\\' => 10,
+        ),
+        'J' => 
+        array (
+            'JiGuang\\' => 8,
+        ),
+        'G' => 
+        array (
+            'GuzzleHttp\\Psr7\\' => 16,
+            'GuzzleHttp\\Promise\\' => 19,
+            'GuzzleHttp\\' => 11,
         ),
     );
 
@@ -28,13 +47,37 @@ class ComposerStaticInit78cae7226a8ec50d45569a6087e2871c
         array (
             0 => __DIR__ . '/..' . '/topthink/think-orm/src',
         ),
+        'Yunpian\\Sdk\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yunpian/yunpian-php-sdk/src',
+        ),
         'Psr\\SimpleCache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/simple-cache/src',
         ),
+        'Psr\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
         'Psr\\Cache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
+        ),
+        'JiGuang\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jiguang/jsms/src',
+        ),
+        'GuzzleHttp\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'GuzzleHttp\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
+        ),
+        'GuzzleHttp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
     );
 

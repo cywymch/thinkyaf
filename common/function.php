@@ -40,3 +40,7 @@ function dump($var, $echo = true, $label = null, $flags = ENT_SUBSTITUTE)
         return $output;
     }
 }
+function test()
+{
+    Demo::test();
+}

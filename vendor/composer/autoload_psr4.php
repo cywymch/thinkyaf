@@ -7,6 +7,12 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'think\\' => array($vendorDir . '/topthink/think-orm/src'),
+    'Yunpian\\Sdk\\' => array($vendorDir . '/yunpian/yunpian-php-sdk/src'),
     'Psr\\SimpleCache\\' => array($vendorDir . '/psr/simple-cache/src'),
+    'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'Psr\\Cache\\' => array($vendorDir . '/psr/cache/src'),
+    'JiGuang\\' => array($vendorDir . '/jiguang/jsms/src'),
+    'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
+    'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
+    'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
 );

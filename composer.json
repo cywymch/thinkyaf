@@ -1,6 +1,8 @@
 {
 	"require" : {
-		"topthink/think-orm" : "^2.0"
+		"topthink/think-orm" : "^2.0",
+		"jiguang/jsms": "^1.0",
+		"yunpian/yunpian-php-sdk": "^1.0"
 	},
 	"autoload" : {
 		"files" : [

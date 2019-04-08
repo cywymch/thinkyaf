@@ -12,8 +12,9 @@ class IndexController extends Controller_Abstract
     {
 //         $obj = new Cache;
 //         $obj(33);
-         $data = $this->getRequest()->getEnv();
-         dump($data);
+//          $data = $this->getRequest()->getEnv();
+//          dump($data);
+            test();
 //        echo 111;
        die();
     }

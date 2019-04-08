@@ -12,7 +12,7 @@ class Tools
      * @param \SimpleXMLElement $xml
      * @return array
      */
-    public static function xml_to_array($xml)
+    public static function xml_to_array($xml):array
     {
         $reg = "/<(\w+)[^>]*>([\\x00-\\xFF]*)<\\/\\1>/";
         if (preg_match_all($reg, $xml, $matches)) {

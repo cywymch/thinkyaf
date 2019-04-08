@@ -25,7 +25,7 @@ class Yunpian implements SmsInterface
      * {@inheritDoc}
      * @see \Common\Org\Sms\SmsInterface::config()
      */
-    public function config($config)
+    public function config(array $config):self
     {
         $this->sms_key = $config['sms_key'];
         $this->sign = $config['sign'];
@@ -37,7 +37,7 @@ class Yunpian implements SmsInterface
      * {@inheritDoc}
      * @see \Common\Org\Sms\SmsInterface::sms()
      */
-    public function sms($mobile,$content)
+    public function sms(string $mobile,string $content):array
     {
         $data = array(
             'text'   =>"【".$this->sign."】".$content,
