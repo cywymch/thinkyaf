@@ -12,11 +12,7 @@ if (! defined('__PATH__')) {
 }
 //项目根目录
 define("__ROOT__",dirname(__FILE__));
-//app根目录
-define("APP_PATH",__ROOT__."/app/");
-//库文件根目录
-define("LIBRARY_PATH",APP_PATH."library/");
 //引入composer包
-require LIBRARY_PATH."vendor/autoload.php";
+require "vendor/autoload.php";
 $app = new Yaf\Application(__ROOT__."/conf/app.ini");
 $app->bootstrap()->run();

@@ -14,7 +14,7 @@ class IndexController extends Controller_Abstract
 //         $obj(33);
          $data = $this->getRequest()->getEnv();
          dump($data);
-       echo 111;
+//        echo 111;
        die();
     }
 }

@@ -94,7 +94,7 @@ class Request{
     
     /**
      * POST，GET请求
-     *
+     *  
      * @param string $url
      * @param mixed $data
      * @return mixed
