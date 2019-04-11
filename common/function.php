@@ -40,7 +40,22 @@ function dump($var, $echo = true, $label = null, $flags = ENT_SUBSTITUTE)
         return $output;
     }
 }
-function test()
+
+/**
+ *  Cookie管理
+ *  
+ * @param string $name
+ * @param mixed $value
+ * @param array $option
+ * @return array
+ */
+function cookie($name, $value = '', $option=[])
 {
-    Demo::test();
+    if (is_null($value)) {
+        Cookie::getInstance()->delete($name);
+    }else if ($value ===''){
+        return Cookie::getInstance()->get($name);
+    }else {
+        Cookie::getInstance()->set($name, $value, $option);
+    }
 }

@@ -6,16 +6,11 @@
  */
 class Cookie
 {
-
-    private function __construct() {}
-    
-    private function __clone() {}
-    
     /**
      * 配置参数
      * @var array
      */
-    protected $config = [
+    protected static $config = [
         // cookie 名称前缀
         'prefix'   => '',
         // cookie 保存时间
@@ -41,6 +36,10 @@ class Cookie
      */
     protected static $instance;
     
+    private function __construct() {}
+    
+    private function __clone() {}
+    
     /**
      * 获取对象实例
      * @param array $config
@@ -48,20 +47,17 @@ class Cookie
      */
     public static function getInstance(array $config = []):self
     {
-        if (! (self::$instance instanceof self)) {
-            self::$instance = new self();
-        }
         $config = new Yaf\Config\Ini(__ROOT__."/conf/app.ini");
         $config_array = $config->toArray();
-        $cookie = $config_arra["cookie"];
+        $cookie = $config_array["cookie"];
         if ($cookie) {
             static::$config = array_merge(static::$config, $cookie);
         }
-        if ($config) {
-            static::$config = array_merge(static::$config, $config);
-        }
         if (! empty ( static::$config['httponly'] )) {
             ini_set ( "session.cookie_httponly", 1 );
+        }
+        if (! (self::$instance instanceof self)) {
+            self::$instance = new self();
         }
         self::$cookie = $_COOKIE;
         return self::$instance;
@@ -69,9 +65,9 @@ class Cookie
     
     /**
      * 获取cookie保存数据
-     * @return array
+     * @return mixed
      */
-    public function get(string $name = ''):array
+    public function get(string $name = '')
     {
         if ($name === '') {
             return self::$cookie;
@@ -96,9 +92,9 @@ class Cookie
             $config = static::$config;
         }
         $expire = !empty($config['expire']) ? time() + intval($config['expire']) : 0;
-        $prefix = $prefix ?: static::$config['prefix'];
-        setcookie($prefix.$name, $value, $expire, $option['path'], $option['domain'], $option['secure'] ? true : false, $option['httponly'] ? true : false);
-      }
+        $prefix = $config['prefix'];
+        $res = setcookie($prefix.$name, $value, $expire, $config['path'], $config['domain'], $config['secure'] ? true : false, $config['httponly'] ? true : false);
+    }
     
     /**
      * 
